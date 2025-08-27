@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎵 Advanced Music Player</h1>
+            <button class="theme-toggle" onclick="toggleTheme()">🌓 Theme</button>
+        </div>
+
+        <div class="music-player">
+            <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+                <input type="file" id="fileInput" accept="audio/*" multiple>
+                <button class="upload-btn">📁 Upload Music Files</button>
+                <p style="margin-top: 10px; color: var(--text-secondary);">
+                    Click to select multiple audio files
+                </p>
+            </div>
+
+            <div class="now-playing">
+                <div class="track-info">
+                    <div class="track-title" id="currentTitle">No track selected</div>
+                    <div class="track-artist" id="currentArtist">Select a song to start playing</div>
+                </div>
+
+                <div class="controls">
+                    <button class="control-btn" onclick="previousTrack()" title="Previous">⏮</button>
+                    <button class="control-btn play-btn" id="playBtn" onclick="togglePlay()"
+                        title="Play/Pause">▶</button>
+                    <button class="control-btn" onclick="nextTrack()" title="Next">⏭</button>
+                    <button class="control-btn" onclick="toggleShuffle()" id="shuffleBtn" title="Shuffle">🔀</button>
+                    <button class="control-btn" onclick="toggleRepeat()" id="repeatBtn" title="Repeat">🔁</button>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" onclick="seek(event)">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <div class="time-info">
+                        <span id="currentTime">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+
+                <div class="volume-container">
+                    <span>🔊</span>
+                    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50">
+                    <span id="volumeValue">50%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="playlist-section">
+            <div class="playlist-container">
+                <div class="section-header">
+                    <h3 class="section-title">Playlists</h3>
+                </div>
+                <input type="text" class="playlist-input" id="playlistNameInput" placeholder="Enter playlist name...">
+                <button class="add-playlist-btn" onclick="createPlaylist()">+ Create Playlist</button>
+                <div class="track-list" id="playlistsList">
+                    <div class="empty-state">No playlists created yet</div>
+                </div>
+            </div>
+
+            <div class="library-container">
+                <div class="section-header">
+                    <h3 class="section-title">Music Library</h3>
+                </div>
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput"
+                        placeholder="Search tracks, artists, or albums...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterTracks('all')">All</button>
+                    <button class="filter-btn" onclick="filterTracks('rock')">Rock</button>
+                    <button class="filter-btn" onclick="filterTracks('pop')">Pop</button>
+                    <button class="filter-btn" onclick="filterTracks('jazz')">Jazz</button>
+                    <button class="filter-btn" onclick="filterTracks('electronic')">Electronic</button>
+                </div>
+                <div class="track-list" id="trackList">
+                    <div class="empty-state">Upload music files to get started</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio id="audioPlayer"></audio>
+    <script src="script.js"></script>
+</body>
+
+</html>
