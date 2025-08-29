@@ -369,12 +369,6 @@ function handleSearch() {
     renderMusicLibrary();
 }
 
-// Toggle theme
-function toggleTheme() {
-    document.body.classList.toggle('light-theme');
-    saveData();
-}
-
 // Save data to memory
 function saveData() {
     // In a real application, this would save to localStorage or a backend
