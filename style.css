@@ -52,24 +52,6 @@ body {
     margin-bottom: 10px;
 }
 
-.theme-toggle {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: var(--secondary-bg);
-    border: 2px solid var(--border);
-    border-radius: 50px;
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: var(--text-primary);
-}
-
-.theme-toggle:hover {
-    transform: scale(1.05);
-    border-color: var(--highlight);
-}
-
 .music-player {
     background: var(--secondary-bg);
     border-radius: 20px;
